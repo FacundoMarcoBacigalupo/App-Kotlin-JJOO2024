@@ -1,4 +1,4 @@
-package data
+package com.losPro.aplicaciondearranque.dominio.data
 import java.time.LocalTime
 
 class Elite : Intermediary("Elite", 3.0) {

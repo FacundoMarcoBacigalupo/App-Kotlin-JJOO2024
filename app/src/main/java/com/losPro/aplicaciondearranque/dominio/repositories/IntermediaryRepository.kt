@@ -1,8 +1,8 @@
 package repositories
-import data.Elite
-import data.Intermediary
-import data.TicketPro
-import data.UltimateEvent
+import com.losPro.aplicaciondearranque.dominio.data.Elite
+import com.losPro.aplicaciondearranque.dominio.data.Intermediary
+import com.losPro.aplicaciondearranque.dominio.data.TicketPro
+import com.losPro.aplicaciondearranque.dominio.data.UltimateEvent
 
 object IntermediaryRepository {
    private val intermediates = listOf( TicketPro(), Elite(), UltimateEvent() )

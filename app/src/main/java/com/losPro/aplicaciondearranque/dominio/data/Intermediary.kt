@@ -1,4 +1,4 @@
-package data
+package com.losPro.aplicaciondearranque.dominio.data
 
 abstract class Intermediary (val name: String, val baseCommission: Double) {
 

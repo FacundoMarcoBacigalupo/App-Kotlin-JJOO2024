@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -28,9 +29,7 @@
             android:autofillHints="emailAddress"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:labelFor="@id/textView"
-
-            />
+            android:labelFor="@id/textView" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
@@ -44,9 +43,7 @@
             android:textColor="@color/material_dynamic_tertiary50"
             android:visibility="visible"
             tools:visibility="visible"
-            android:imeActionLabel="Introduce_password"
-
-            />
+            android:imeActionLabel="Introduce_password" />
     </LinearLayout>
 
     <Button
@@ -83,8 +80,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.166"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/textView3"
@@ -126,6 +122,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

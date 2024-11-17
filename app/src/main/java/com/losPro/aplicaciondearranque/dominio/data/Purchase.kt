@@ -1,4 +1,4 @@
-package data
+package com.losPro.aplicaciondearranque.dominio.data
 
 data class Purchase(
     val id: Long,

@@ -1,5 +1,5 @@
 package repositories
-import data.Sport
+import com.losPro.aplicaciondearranque.dominio.data.Sport
 
 object SportRepository {
     fun getFootball(): Sport {

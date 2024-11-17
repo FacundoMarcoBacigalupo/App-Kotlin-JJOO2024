@@ -1,5 +1,5 @@
 package repositories
-import data.Purchase
+import com.losPro.aplicaciondearranque.dominio.data.Purchase
 
 
 object PurchaseRepository {

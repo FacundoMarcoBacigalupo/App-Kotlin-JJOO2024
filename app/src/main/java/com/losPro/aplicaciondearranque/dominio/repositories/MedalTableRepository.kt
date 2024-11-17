@@ -1,5 +1,5 @@
 package repositories
-import data.Country
+import com.losPro.aplicaciondearranque.dominio.data.Country
 
 object MedalTableRepository {
     private val countries = mutableListOf<Country>()

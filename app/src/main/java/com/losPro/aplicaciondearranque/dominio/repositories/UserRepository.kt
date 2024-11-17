@@ -1,6 +1,6 @@
 package repositories
-import data.InvalidCredentialsException
-import data.User
+import com.losPro.aplicaciondearranque.dominio.data.InvalidCredentialsException
+import com.losPro.aplicaciondearranque.dominio.data.User
 
 
 object UserRepository {

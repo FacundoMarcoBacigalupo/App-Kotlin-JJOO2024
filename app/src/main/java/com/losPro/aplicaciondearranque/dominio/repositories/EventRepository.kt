@@ -1,5 +1,5 @@
 package repositories
-import data.Event
+import com.losPro.aplicaciondearranque.dominio.data.Event
 
 
 object EventRepository {
