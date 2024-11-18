@@ -1,12 +1,12 @@
-package com.losPro.aplicaciondearranque.dominio
+package com.losPro.aplicaciondearranque.dominio.data
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.R
-import com.losPro.aplicaciondearranque.dominio.data.Event
 
 class EventAdapter(private val events : List<Event>) :
     RecyclerView.Adapter<EventAdapter.ViewHolder>(){
@@ -21,6 +21,7 @@ class EventAdapter(private val events : List<Event>) :
             val sport: TextView = eventView.findViewById(R.id.textViewSport)
         }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
      val view = LayoutInflater.from(parent.context).inflate(R.layout.event_layout,parent,false)
         return ViewHolder(view)

@@ -10,7 +10,7 @@
         android:id="@+id/imageView2"
         android:layout_width="778dp"
         android:layout_height="1170dp"
-        android:contentDescription="@string/goku"
+        android:contentDescription="@string/text_for_images"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -19,73 +19,72 @@
         app:layout_constraintVertical_bias="0.501"
         app:srcCompat="@mipmap/ic_background_login_foreground" />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/init"
+        android:text="@string/home"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="20dp" />
+        tools:layout_editor_absoluteY="50dp" />
 
+    <!-- Botan Buy Tickets -->
     <Button
         android:id="@+id/button_comprar_tickets"
         android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:text="@string/comprar_tickets"
+        android:layout_height="80dp"
+        android:text="@string/buy_tickets"
+        android:textSize="17sp"
         android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181"
-        android:onClick="loadFragmentBuyTickets" />
+        app:layout_constraintBottom_toTopOf="@+id/button_see_history"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintHorizontal_chainStyle="spread" />
 
+    <!-- Boton View All Medals -->
     <Button
         android:id="@+id/button4"
         android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:text="@string/ver_todas_las_medallas"
+        android:layout_height="80dp"
+        android:text="@string/view_all_medals"
+        android:textSize="17sp"
         android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358"
-        android:onClick="loadFragmentViewMedals" />
+        app:layout_constraintBottom_toTopOf="@+id/button_see_history"
+        app:layout_constraintStart_toEndOf="@+id/button_comprar_tickets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread" />
 
+
+    <!-- Boton Out -->
     <Button
         android:id="@+id/button_see_history"
         android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:text="@string/ver_historial_de_compra"
+        android:layout_height="80dp"
         android:backgroundTint="@color/black"
+        android:text="@string/ver_historial_de_compra"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintEnd_toStartOf="@+id/button_go_from_main2_to_main"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543"
-        android:onClick="loadFragmentPurchaseHistory" />
+        app:layout_constraintTop_toBottomOf="@+id/button_comprar_tickets" />
 
     <Button
         android:id="@+id/button_go_from_main2_to_main"
         android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:text="@string/salir"
+        android:layout_height="80dp"
+        android:text="@string/out"
+        android:textSize="17sp"
         android:backgroundTint="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_see_history"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742"
-         />
+        app:layout_constraintHorizontal_chainStyle="spread" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
