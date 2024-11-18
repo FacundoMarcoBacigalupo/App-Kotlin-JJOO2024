@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.dominio.EventAdapter
 import com.losPro.aplicaciondearranque.dominio.data.User
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         mainActivity()
-
     }
 
     private fun mainActivity() {
@@ -43,8 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginUser() : Boolean
-    {
+    private fun loginUser() : Boolean  {
         val password : String = findViewById<TextView>(R.id.editTextTextPassword).text.toString()
         val nickName : String = findViewById<TextView>(R.id.editTextTextEmailAddress).text.toString()
 
@@ -72,19 +71,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_buy_tickets)
 
         val recyclerViewEvents = findViewById<RecyclerView>(R.id.recyclerViewEvents)
-        val adapter = EventAdapter(EventRepository.getEvents())
+        recyclerViewEvents.layoutManager = LinearLayoutManager(this)
             recyclerViewEvents.adapter = EventAdapter(EventRepository.getEvents())
-
 
 
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-               // setContentView(R.layout.activity_main2) //Back to activity_main2
+               //Back to activity_main2
                 loadActivityMain2()
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
-
 
     }
 
