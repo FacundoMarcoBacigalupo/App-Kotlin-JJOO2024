@@ -117,6 +117,10 @@ object EventRepository {
       )
    }
 
+   fun getEvents(): List<Event> {
+      return events
+   }
+
    fun get() : List<Event> {
       val newListEvents = mutableListOf<Event>()
 

@@ -75,7 +75,7 @@
         android:onClick="loadFragmentPurchaseHistory" />
 
     <Button
-        android:id="@+id/button_go_out_from_Menu"
+        android:id="@+id/button_go_from_main2_to_main"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:text="@string/salir"
@@ -86,6 +86,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.742"
-        android:onClick="loadMainActivity" />
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
