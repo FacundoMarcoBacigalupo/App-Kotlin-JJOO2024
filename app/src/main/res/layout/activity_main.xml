@@ -10,7 +10,6 @@
     android:background="@color/lightskyblue"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="206dp"

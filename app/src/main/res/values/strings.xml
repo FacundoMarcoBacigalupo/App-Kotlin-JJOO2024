@@ -24,4 +24,5 @@
     <string name="ver_historial_de_compra">View Purchase History</string>
     <string name="view_all_medals">View All Medals</string>
     <string name="text_for_images">Images description</string>
+    <string name="hello_blank_fragment">blank\n</string>
 </resources>

@@ -19,7 +19,6 @@ object PurchaseRepository {
       purchases.add(Purchase(10L, 1510L, 5L, 150.00, "2024-06-25", "11J"))
    }
 
-
    fun getByUserId(userId: Long): List<Purchase> {
       return purchases.filter { it.userId == userId }
    }
@@ -46,7 +45,6 @@ object PurchaseRepository {
       occupiedSeats.add(seat)
       return seat
    }
-
 
    fun newIdPurchase(): Long{
       val currentPurchases = get()

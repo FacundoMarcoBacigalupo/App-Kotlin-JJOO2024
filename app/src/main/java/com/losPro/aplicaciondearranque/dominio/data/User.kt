@@ -8,5 +8,4 @@ data class User(
    val surname: String,
    var money: Double,
    val createdDate: String
-
 )

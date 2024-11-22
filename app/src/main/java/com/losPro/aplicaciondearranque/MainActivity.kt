@@ -6,10 +6,13 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.losPro.aplicaciondearranque.dominio.data.Event
 import com.losPro.aplicaciondearranque.dominio.data.EventAdapter
+import com.losPro.aplicaciondearranque.dominio.data.EventButtonsAdapter
 import com.losPro.aplicaciondearranque.dominio.data.User
 import repositories.EventRepository
 import repositories.UserRepository
@@ -19,9 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         mainActivity()
-    }
 
+    }
 
     private fun mainActivity() {
         val callback = object : OnBackPressedCallback(true) {
@@ -29,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-
         onBackPressedDispatcher.addCallback(this, callback)
 
         //Set the content view to the activity_main layout & log the user
@@ -42,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                 loadActivityMain2()
         }
     }
-
 
     private fun loginUser() : Boolean  {
         val password : String = findViewById<TextView>(R.id.editTextTextPassword).text.toString()
@@ -60,24 +62,36 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     //Redirect to Home
     private fun loadActivityMain2() {
         setContentView(R.layout.activity_main2)
 
+        val buttonBuyTickets : Button = findViewById(R.id.button_comprar_tickets)
+        buttonBuyTickets.setOnClickListener{
+            loadFragmentBuyTickets()
+        }
 
         val buttonExit : Button = findViewById(R.id.button_go_from_main2_to_main)
         buttonExit.setOnClickListener{mainActivity()}
+
     }
 
-
     //Redirect to Buy Tickets
-    fun loadFragmentBuyTickets(view: View) {
+    private fun loadFragmentBuyTickets() {
         setContentView(R.layout.fragment_buy_tickets)
 
+        var eventChoosed : Event
+        //choose one event in the reccler view
         val recyclerViewEvents = findViewById<RecyclerView>(R.id.recyclerViewEvents)
         recyclerViewEvents.layoutManager = LinearLayoutManager(this)
-            recyclerViewEvents.adapter = EventAdapter(EventRepository.getEvents())
+        val adapter = EventButtonsAdapter(EventRepository.getEvents()){event: Event ->
+
+            Toast.makeText(this, "Presionaste: $event", Toast.LENGTH_SHORT).show()
+            eventChoosed = event
+        }
+
+
+            recyclerViewEvents.adapter = adapter
 
 
         val callback = object : OnBackPressedCallback(true) {
@@ -87,33 +101,33 @@ class MainActivity : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
-
     }
-
 
     //Redirect to View All Medals
     fun loadFragmentViewMedals(view: View) {
         setContentView(R.layout.fragment_view_medals)
+        val recyclerViewEvents = findViewById<RecyclerView>(R.id.recyclerViewPurchases)
+        recyclerViewEvents.layoutManager = LinearLayoutManager(this)
+        recyclerViewEvents.adapter = EventAdapter(EventRepository.getEvents())
     }
-
 
     //Redirect to Purchase History
     fun loadFragmentPurchaseHistory(view: View){
         setContentView(R.layout.fragment_purchase_history)
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                // setContentView(R.layout.activity_main) //Back to activity_main
+               //Back to activity_main
                 mainActivity()
             }
-
         }
     }
-
 
     private fun showErrorInLogIn() {
         Toast.makeText(this, "Error with the credentials", Toast.LENGTH_SHORT).show()
         val errorText: TextView = findViewById(R.id.textView4)
-        errorText.text = getString(R.string.name_or_password_incorrect)
+        errorText.text = getString(R.string.password_or_email_are_incorrect)
+
+
     }
 
 }
