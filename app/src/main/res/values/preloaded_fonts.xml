@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/archivo_thin</item>
+        <item>@font/bakbak_one</item>
+        <item>@font/baloo_paaji</item>
+        <item>@font/bungee</item>
+        <item>@font/bungee_spice</item>
+        <item>@font/concert_one</item>
+        <item>@font/notable</item>
+        <item>@font/tilt_warp</item>
+    </array>
+</resources>

@@ -14,8 +14,8 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
 
-    <string name="home">Home</string>
-    <string name="contrase_a">Password</string>
+    <string name="home">Welcome!</string>
+    <string name="contrase_a">Password:</string>
     <string name="nickname_indication">Name:</string>
     <string name="name_or_password_incorrect">Name or Password Incorrect!</string>
     <string name="password_or_email_are_incorrect">Password or Email Incorrect</string>
