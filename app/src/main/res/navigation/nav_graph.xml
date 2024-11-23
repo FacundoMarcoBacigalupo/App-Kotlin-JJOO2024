@@ -1,28 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/activity_main">
 
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.losPro.aplicaciondearranque.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+    <!-- activity_main (login) -->
+    <activity
+        android:id="@+id/activity_main"
+        android:name="com.losPro.aplicaciondearranque.MainActivity"
+        android:label="Main (login)"
+        tools:layout="@layout/activity_main" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.losPro.aplicaciondearranque.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+            android:id="@+id/action_main_to_home"
+            app:destination="@id/activity_home" />
+    </activity>
 
+    <!-- activity_main2 (home) -->
+    <fragment
+        android:id="@+id/activity_home"
+        android:name="com.losPro.aplicaciondearranque.Home"
+        android:label="Home"
+        tools:layout="@layout/activity_home">
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_home_to_fragment_buy_tickets"
+            app:destination="@id/fragment_buy_tickets" />
+        <action
+            android:id="@+id/action_home_to_fragment_view_medals"
+            app:destination="@id/fragment_view_medals" />
+        <action
+            android:id="@+id/action_home_main2_to_fragment_purchase_history"
+            app:destination="@id/fragment_purchase_history" />
     </fragment>
+
+
+    <!-- buy_tickets -->
+    <fragment
+        android:id="@+id/fragment_buy_tickets"
+        android:name="com.losPro.aplicaciondearranque.BuyTickets"
+        android:label="Buy Tickets"
+        tools:layout="@layout/fragment_buy_tickets" />
+
+    <!-- view_medals -->
+    <fragment
+        android:id="@+id/fragment_view_medals"
+        android:name="com.losPro.aplicaciondearranque.ViewMedals"
+        android:label="View Medals"
+        tools:layout="@layout/fragment_view_medals" />
+
+    <!-- purchases history  -->
+    <fragment
+        android:id="@+id/fragment_purchase_history"
+        android:name="com.losPro.aplicaciondearranque.PurchaseHistory"
+        android:label="Purchase History"
+        tools:layout="@layout/fragment_purchase_history" />
+
 </navigation>
