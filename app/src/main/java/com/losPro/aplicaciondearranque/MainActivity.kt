@@ -1,19 +1,19 @@
 package com.losPro.aplicaciondearranque
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.findNavController
 import com.losPro.aplicaciondearranque.dominio.data.User
 import repositories.UserRepository
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var currentUser: User
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             val logged = loginUser()
             if (logged) {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.action_main_to_home)
+                findViewById<FragmentContainerView>(R.id.nav_host_fragment).visibility = View.VISIBLE
             }
         }
     }
