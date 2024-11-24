@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.dominio.data.EventAdapter
+import com.losPro.aplicaciondearranque.dominio.data.MedalsAdapter
 import repositories.EventRepository
+import repositories.MedalTableRepository
 
 class ViewMedals : Fragment() {
 
@@ -19,22 +23,18 @@ class ViewMedals : Fragment() {
       return inflater.inflate(R.layout.fragment_view_medals, container, false)
    }
 
-
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
       val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewMedals)
       recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
-      recyclerViewEvents.adapter = EventAdapter(EventRepository.getEvents())
+      recyclerViewEvents.adapter = MedalsAdapter(MedalTableRepository.get())
+
+       val callback = object : OnBackPressedCallback(true) {
+         override fun handleOnBackPressed() {
+            findNavController().navigate(R.id.fragment_home) // Back to fragment_home
+         }
+      }
+      requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
    }
 }
-
-
-////Redirect to View All Medals
-//fun loadFragmentViewMedals(view: View) {
-//   setContentView(R.layout.fragment_view_medals)
-//
-//   val recyclerViewEvents = findViewById<RecyclerView>(R.id.recyclerViewPurchases)
-//   recyclerViewEvents.layoutManager = LinearLayoutManager(this)
-//   recyclerViewEvents.adapter = EventAdapter(EventRepository.getEvents())
-//}

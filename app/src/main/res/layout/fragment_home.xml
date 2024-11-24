@@ -103,7 +103,7 @@
 
     <!-- Button Exit -->
     <Button
-        android:id="@+id/button_go_from_main2_to_main"
+        android:id="@+id/button_exit"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:backgroundTint="@android:color/holo_green_dark"

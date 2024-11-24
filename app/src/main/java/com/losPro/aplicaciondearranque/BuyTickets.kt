@@ -24,10 +24,8 @@ class BuyTickets : Fragment() {
       return inflater.inflate(R.layout.fragment_buy_tickets, container, false)
    }
 
-
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
-
 
       var eventChoosed: Event
 
@@ -41,42 +39,15 @@ class BuyTickets : Fragment() {
       }
       recyclerViewEvents.adapter = adapter
 
-
       val callback = object : OnBackPressedCallback(true) {
          override fun handleOnBackPressed() {
             //Back to Home
-            findNavController().navigate(R.id.activity_home)
+            findNavController().navigate(R.id.fragment_home)
          }
       }
       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+
+
    }
 }
-
-
-
-////Redirect to Buy Tickets
-//private fun loadFragmentBuyTickets() {
-//   setContentView(R.layout.fragment_buy_tickets)
-//
-//   var eventChoosed : Event
-//   //choose one event in the recycler view
-//   val recyclerViewEvents = findViewById<RecyclerView>(R.id.recyclerViewEvents)
-//   recyclerViewEvents.layoutManager = LinearLayoutManager(this)
-//   val adapter = EventButtonsAdapter(EventRepository.getEvents()){ event: Event ->
-//
-//      Toast.makeText(this, "You touched: $event", Toast.LENGTH_SHORT).show()
-//      eventChoosed = event
-//   }
-//
-//
-//   recyclerViewEvents.adapter = adapter
-//
-//
-//   val callback = object : OnBackPressedCallback(true) {
-//      override fun handleOnBackPressed() {
-//         //Back to activity_main2
-//         loadActivityMain2()
-//      }
-//   }
-//   onBackPressedDispatcher.addCallback(this, callback)
-//}

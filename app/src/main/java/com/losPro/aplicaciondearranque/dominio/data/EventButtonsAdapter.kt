@@ -13,7 +13,6 @@ class EventButtonsAdapter(private val events : List<Event>,
                           private val onButtonClick: (Event) -> Unit
     ) :
     RecyclerView.Adapter<EventButtonsAdapter.ViewHolder>(){
-
     class ViewHolder(eventView: View) : RecyclerView.ViewHolder(eventView){
 
             val id: TextView = eventView.findViewById(R.id.textViewId)
@@ -22,7 +21,6 @@ class EventButtonsAdapter(private val events : List<Event>,
             val place: TextView = eventView.findViewById(R.id.textViewPlace)
             val price: TextView = eventView.findViewById(R.id.textViewPrice)
             val sport: TextView = eventView.findViewById(R.id.textViewSport)
-
             val buttonTest: Button = eventView.findViewById(R.id.buttonTest)
         }
 
@@ -41,7 +39,6 @@ class EventButtonsAdapter(private val events : List<Event>,
         holder.sport.text = event.sport.toString()
 
       holder.buttonTest.setOnClickListener(){
-    Log.i("esa","me tocaste")
           onButtonClick(event)
       }
     }

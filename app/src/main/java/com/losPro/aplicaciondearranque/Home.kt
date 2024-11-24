@@ -35,6 +35,13 @@ class Home : Fragment() {
       buttonPurchaseHistory.setOnClickListener {
          findNavController().navigate(R.id.action_home_to_fragment_purchase_history)
       }
+      val buttonExit: Button = view.findViewById(R.id.button_exit)
+      buttonExit.setOnClickListener {
+         findNavController().navigate(R.id.action_home_to_fragment_login)
+      }
+
+
+
    }
 }
 

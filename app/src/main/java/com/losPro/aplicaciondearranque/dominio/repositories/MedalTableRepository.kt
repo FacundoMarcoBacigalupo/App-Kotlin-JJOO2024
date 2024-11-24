@@ -8,7 +8,7 @@ object MedalTableRepository {
         countries.add(
             Country(
                 1L,
-                1.toString(),
+                     1.toString(),
                 "Estados Unidos",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png",
                 35,

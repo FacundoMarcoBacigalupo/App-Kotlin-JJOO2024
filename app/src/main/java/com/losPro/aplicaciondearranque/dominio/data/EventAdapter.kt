@@ -22,6 +22,7 @@ class EventAdapter(private val events : List<Event>) :
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
      val view = LayoutInflater.from(parent.context).inflate(R.layout.event_layout,parent,false)
         return ViewHolder(view)
     }

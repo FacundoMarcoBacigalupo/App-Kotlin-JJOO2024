@@ -22,7 +22,6 @@ class PurchaseHistory : Fragment() {
       return inflater.inflate(R.layout.fragment_purchase_history, container, false)
    }
 
-
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
@@ -33,7 +32,7 @@ class PurchaseHistory : Fragment() {
 
       val callback = object : OnBackPressedCallback(true) {
          override fun handleOnBackPressed() {
-            findNavController().navigate(R.id.activity_main) // Back to activity_main
+            findNavController().navigate(R.id.fragment_home) // Back to fragment_home
          }
       }
       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
