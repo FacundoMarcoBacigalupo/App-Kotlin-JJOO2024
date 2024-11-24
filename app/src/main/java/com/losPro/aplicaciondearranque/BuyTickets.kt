@@ -30,9 +30,11 @@ class BuyTickets : Fragment() {
 
 
       var eventChoosed: Event
+
       //choose one event in the recycler view
       val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewEvents)
       recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
+
       val adapter = EventButtonsAdapter(EventRepository.getEvents()) { event: Event ->
          Toast.makeText(requireContext(), "You touched: $event", Toast.LENGTH_SHORT).show()
          eventChoosed = event

@@ -9,12 +9,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/view_all_medals" />
+        android:layout_marginTop="10dp"
+        android:text="@string/view_all_medals"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        android:textAlignment="center" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPurchases"
+        android:id="@+id/recyclerViewMedals"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

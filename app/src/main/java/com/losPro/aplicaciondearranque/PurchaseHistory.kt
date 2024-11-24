@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.losPro.aplicaciondearranque.dominio.data.PurchaseAdapter
+import repositories.PurchaseRepository
 
 
 class PurchaseHistory : Fragment() {
@@ -22,15 +26,20 @@ class PurchaseHistory : Fragment() {
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
+      val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewPurchasesHistory)
+      recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
+      recyclerViewEvents.adapter = PurchaseAdapter(PurchaseRepository.get())
+
 
       val callback = object : OnBackPressedCallback(true) {
          override fun handleOnBackPressed() {
-            // Back to activity_main
-            findNavController().navigate(R.id.activity_main)
+            findNavController().navigate(R.id.activity_main) // Back to activity_main
          }
       }
       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
    }
+
+
 }
 
 

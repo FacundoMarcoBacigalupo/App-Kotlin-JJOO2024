@@ -23,8 +23,7 @@ class ViewMedals : Fragment() {
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
-
-      val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewPurchases)
+      val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewMedals)
       recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
       recyclerViewEvents.adapter = EventAdapter(EventRepository.getEvents())
    }
