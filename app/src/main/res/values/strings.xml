@@ -15,13 +15,13 @@
     <string name="password">Password</string>
 
     <string name="home">Welcome!</string>
-    <string name="contrase_a">Password:</string>
+    <string name="password_">Password:</string>
     <string name="nickname_indication">Name:</string>
     <string name="name_or_password_incorrect">Name or Password Incorrect!</string>
     <string name="password_or_email_are_incorrect">Password or Email Incorrect</string>
     <string name="buy_tickets">Buy Tickets</string>
     <string name="out">Exit</string>
-    <string name="ver_historial_de_compra">View Purchase History</string>
+    <string name="view_purchase_history">View Purchase History</string>
     <string name="view_all_medals">View All Medals</string>
     <string name="text_for_images">Images description</string>
     <string name="hello_blank_fragment">blank\n</string>

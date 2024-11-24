@@ -1,4 +1,4 @@
-package com.losPro.aplicaciondearranque;
+package com.losPro.aplicaciondearranque
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,13 +21,20 @@ class Home : Fragment() {
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
-
       val buttonBuyTickets: Button = view.findViewById(R.id.button_buy_tickets)
       buttonBuyTickets.setOnClickListener {
          findNavController().navigate(R.id.action_home_to_fragment_buy_tickets)
       }
 
+      val buttonViewAllMedals: Button = view.findViewById(R.id.button_view_all_medals)
+      buttonViewAllMedals.setOnClickListener {
+         findNavController().navigate(R.id.action_home_to_fragment_view_medals)
+      }
 
+      val buttonPurchaseHistory: Button = view.findViewById(R.id.button_purchase_history)
+      buttonPurchaseHistory.setOnClickListener {
+         findNavController().navigate(R.id.action_home_to_fragment_purchase_history)
+      }
    }
 }
 

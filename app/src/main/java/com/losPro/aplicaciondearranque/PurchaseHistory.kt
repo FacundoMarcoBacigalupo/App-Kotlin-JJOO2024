@@ -1,4 +1,4 @@
-package com.losPro.aplicaciondearranque;
+package com.losPro.aplicaciondearranque
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -30,7 +30,7 @@
             android:id="@+id/action_home_to_fragment_view_medals"
             app:destination="@id/fragment_view_medals" />
         <action
-            android:id="@+id/action_home_main2_to_fragment_purchase_history"
+            android:id="@+id/action_home_to_fragment_purchase_history"
             app:destination="@id/fragment_purchase_history" />
     </fragment>
 

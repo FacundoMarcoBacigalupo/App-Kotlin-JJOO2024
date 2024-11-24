@@ -63,7 +63,7 @@
 
     <!-- Button View All Medals -->
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_view_all_medals"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:backgroundTint="@android:color/holo_orange_light"
@@ -83,11 +83,11 @@
 
     <!-- Button Purchases History -->
     <Button
-        android:id="@+id/button_see_history"
+        android:id="@+id/button_purchase_history"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:backgroundTint="@android:color/holo_red_light"
-        android:text="@string/ver_historial_de_compra"
+        android:text="@string/view_purchase_history"
         android:textSize="16sp"
         android:translationZ="20dp"
         app:cornerRadius="10dp"
