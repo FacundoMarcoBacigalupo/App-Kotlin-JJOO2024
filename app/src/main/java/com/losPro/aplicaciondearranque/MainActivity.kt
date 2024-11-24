@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.findNavController
 import com.losPro.aplicaciondearranque.dominio.data.User
 import repositories.UserRepository
@@ -38,8 +39,13 @@ class MainActivity : AppCompatActivity() {
         button2.setOnClickListener {
             val logged = loginUser()
             if (logged) {
-                findNavController(R.id.nav_host_fragment).navigate(R.id.action_main_to_home)
-                findViewById<FragmentContainerView>(R.id.nav_host_fragment).visibility = View.VISIBLE
+                // Navigate using deep link
+                val pendingIntent = NavDeepLinkBuilder(this)
+                    .setGraph(R.navigation.nav_graph)
+                    .setDestination(R.id.activity_home)
+                    .createPendingIntent()
+
+                pendingIntent.send()
             }
         }
     }
@@ -53,6 +59,15 @@ class MainActivity : AppCompatActivity() {
         val user = UserRepository.login(nickName, password)
         if (user != null) {
             this.currentUser = user
+
+            // Navigate using deep link
+            val pendingIntent = NavDeepLinkBuilder(this)
+                .setGraph(R.navigation.nav_graph)
+                .setDestination(R.id.activity_home)
+                .createPendingIntent()
+
+            pendingIntent.send()
+
             return true
         } else {
             showErrorInLogIn()

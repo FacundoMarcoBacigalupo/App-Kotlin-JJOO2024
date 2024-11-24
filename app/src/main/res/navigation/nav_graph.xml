@@ -12,17 +12,18 @@
         android:name="com.losPro.aplicaciondearranque.MainActivity"
         android:label="Main (login)"
         tools:layout="@layout/activity_main" >
-        <action
-            android:id="@+id/action_main_to_home"
-            app:destination="@id/activity_home" />
+        <deepLink app:uri="app://main" />
+    <!-- <action
+        android:id="@+id/action_main_to_home"
+        app:destination="@id/activity_home" /> -->
     </activity>
 
-    <!-- activity_main2 (home) -->
+    <!-- activity_home -->
     <fragment
         android:id="@+id/activity_home"
         android:name="com.losPro.aplicaciondearranque.Home"
         android:label="Home"
-        tools:layout="@layout/activity_home">
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_home_to_fragment_buy_tickets"
             app:destination="@id/fragment_buy_tickets" />

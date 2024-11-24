@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     android:background="@color/darkkhaki">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:text="@string/buy_tickets"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        android:textAlignment="center" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewEvents"
         android:layout_width="225dp"
