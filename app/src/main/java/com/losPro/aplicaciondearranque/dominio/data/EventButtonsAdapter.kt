@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.R
@@ -22,6 +23,8 @@ class EventButtonsAdapter(private val events : List<Event>,
             val price: TextView = eventView.findViewById(R.id.textViewPrice)
             val sport: TextView = eventView.findViewById(R.id.textViewSport)
             val buttonTest: Button = eventView.findViewById(R.id.buttonTest)
+            val stars: TextView = eventView.findViewById(R.id.textViewStars)
+            val logo: ImageView = eventView.findViewById(R.id.imageViewLogo)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,7 +39,13 @@ class EventButtonsAdapter(private val events : List<Event>,
         holder.hour.text = event.hour
         holder.place.text = event.place
         holder.price.text = event.price.toString()
-        holder.sport.text = event.sport.toString()
+        //holder.sport.text = event.sport.toString()
+        holder.sport.text= event.sport.name
+        holder.stars.text= event.sport.stars.toString()
+
+      //  holder.logo.image=event.sport.logo
+     // .load(event.sport.logo)
+      //.into(holder.logo)
 
       holder.buttonTest.setOnClickListener(){
           onButtonClick(event)

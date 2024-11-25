@@ -5,25 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkkhaki">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:text="@string/buy_tickets"
-        android:textSize="23sp"
-        android:textColor="@color/black"
-        android:textAlignment="center" />
+    android:background="@mipmap/background_general">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewEvents"
-        android:layout_width="225dp"
-        android:layout_height="443dp"
+        android:layout_width="385dp"
+        android:layout_height="711dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="0dp"
+        android:padding="0dp"/>
 
     <FrameLayout
         android:id="@+id/fragment_show_intermediarys"

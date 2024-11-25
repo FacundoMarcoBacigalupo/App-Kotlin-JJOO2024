@@ -4,39 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@mipmap/background_general">
+>
 
     <Button
         android:id="@+id/button_intermediary_pro"
-        android:layout_width="139dp"
-        android:layout_height="84dp"
+        android:layout_width="195dp"
+        android:layout_height="73dp"
+        app:strokeColor="@color/white"
+        style="?attr/materialButtonOutlinedStyle"
+        app:cornerRadius="5dp"
         android:text="@string/pro"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.197" />
+        app:layout_constraintVertical_bias="0.253" />
 
     <Button
         android:id="@+id/button_intermediary_elite"
-        android:layout_width="139dp"
-        android:layout_height="84dp"
+        android:layout_width="195dp"
+        android:layout_height="73dp"
+        app:strokeColor="@color/white"
+        style="?attr/materialButtonOutlinedStyle"
         android:text="@string/elite"
+        app:cornerRadius="5dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469" />
+        app:layout_constraintVertical_bias="0.484" />
 
     <Button
         android:id="@+id/button_intermediary_ultimate_event"
-        android:layout_width="139dp"
-        android:layout_height="84dp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="195dp"
+        android:layout_height="73dp"
         android:text="@string/ultimate_event"
+        android:textColor="@color/white"
+        app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778" />
+        app:layout_constraintVertical_bias="0.718"
+        app:strokeColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="188dp"
+        android:layout_height="49dp"
+        android:fontFamily="sans-serif-thin"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/select_an_option"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/button_intermediary_pro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.471" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
