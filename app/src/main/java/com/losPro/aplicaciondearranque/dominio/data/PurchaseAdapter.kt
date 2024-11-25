@@ -11,7 +11,6 @@ class PurchaseAdapter(private val purchases :  List<Purchase>) :
     RecyclerView.Adapter<PurchaseAdapter.ViewHolder>(){
 
     class ViewHolder(purchaseView: View) : RecyclerView.ViewHolder(purchaseView){
-
         val id: TextView = purchaseView.findViewById(R.id.textViewId)
         val userId: TextView = purchaseView.findViewById(R.id.textViewUserId)
         val eventId: TextView = purchaseView.findViewById(R.id.textViewEventId)

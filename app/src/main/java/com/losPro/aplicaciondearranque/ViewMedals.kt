@@ -9,10 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.losPro.aplicaciondearranque.dominio.data.EventAdapter
 import com.losPro.aplicaciondearranque.dominio.data.MedalsAdapter
-import repositories.EventRepository
 import repositories.MedalTableRepository
+import kotlin.text.get
 
 class ViewMedals : Fragment() {
 
@@ -28,7 +27,9 @@ class ViewMedals : Fragment() {
 
       val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewMedals)
       recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
-      recyclerViewEvents.adapter = MedalsAdapter(MedalTableRepository.get())
+
+      val medalsList = MedalTableRepository.get().toList()
+      recyclerViewEvents.adapter = MedalsAdapter(medalsList)
 
        val callback = object : OnBackPressedCallback(true) {
          override fun handleOnBackPressed() {
