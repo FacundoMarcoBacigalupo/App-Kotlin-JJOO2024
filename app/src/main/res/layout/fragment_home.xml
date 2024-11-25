@@ -19,12 +19,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/background3" />
+        app:srcCompat="@mipmap/home_background" />
+
+    <!-- Button Buy Tickets -->
 
     <TextView
-        android:layout_width="182dp"
-        android:layout_height="56dp"
-        android:fontFamily="@font/baloo_paaji"
+        android:layout_width="188dp"
+        android:layout_height="49dp"
+        android:fontFamily="sans-serif-thin"
         android:lineSpacingExtra="8sp"
         android:text="@string/home"
         android:textColor="@color/white"
@@ -32,94 +34,101 @@
         android:typeface="normal"
         app:layout_constraintBottom_toTopOf="@+id/button_buy_tickets"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337"
+        app:layout_constraintVertical_bias="0.539"
         tools:ignore="MissingConstraints" />
 
-    <!-- Button Buy Tickets -->
     <Button
         android:id="@+id/button_buy_tickets"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginBottom="468dp"
-        android:backgroundTint="@color/light_blue"
-        android:backgroundTintMode="src_atop"
-        android:elevation="100dp"
         android:text="@string/buy_tickets"
+        android:textColor="@color/white"
         android:textSize="17sp"
-        android:translationZ="20dp"
         app:cornerRadius="10dp"
-        app:elevation="20dp"
         app:icon="@drawable/buy_logo2"
+        app:iconPadding="1dp"
+        app:iconSize="28dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.1" />
+        app:layout_constraintVertical_bias="1.1"
+        app:strokeColor="@color/white" />
 
     <!-- Button View All Medals -->
     <Button
         android:id="@+id/button_view_all_medals"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:backgroundTint="@android:color/holo_orange_light"
         android:text="@string/view_all_medals"
+        android:textColor="@color/white"
         android:textSize="17sp"
-        android:translationZ="20dp"
         app:cornerRadius="10dp"
-        app:elevation="20dp"
         app:icon="@drawable/medal_logo"
+        app:iconSize="28dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/button_purchase_history"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
+        app:layout_constraintVertical_bias="0.86"
+        app:strokeColor="@color/white" />
 
     <!-- Button Purchases History -->
     <Button
         android:id="@+id/button_purchase_history"
+        style="?attr/materialButtonOutlinedStyle"
+
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:backgroundTint="@android:color/holo_red_light"
         android:text="@string/view_purchase_history"
+        android:textColor="@color/white"
         android:textSize="16sp"
-        android:translationZ="20dp"
         app:cornerRadius="10dp"
-        app:elevation="20dp"
         app:icon="@drawable/view_history_logo"
+        app:iconSize="28dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_buy_tickets"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.442"
+        app:strokeColor="@color/white" />
 
     <!-- Button Exit -->
     <Button
         android:id="@+id/button_exit"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:backgroundTint="@android:color/holo_green_dark"
         android:outlineProvider="bounds"
         android:text="@string/out"
+        android:textColor="@color/white"
         android:textSize="17sp"
-        android:translationZ="20dp"
         app:cornerRadius="10dp"
-        app:elevation="20dp"
         app:icon="@drawable/exit_logo"
+        app:iconSize="28dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_purchase_history"
-        app:layout_constraintVertical_bias="0.346" />
+        app:layout_constraintVertical_bias="0.346"
+        app:strokeColor="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,19 +6,20 @@
     android:id="@+id/act_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/login_background"
+    android:background="@mipmap/login_background2"
     android:scaleX="1"
     android:scaleY="1"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_login"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        />
+        tools:layout="@layout/fragment_login"
+        tools:layout_editor_absoluteX="379dp"
+        tools:layout_editor_absoluteY="304dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
