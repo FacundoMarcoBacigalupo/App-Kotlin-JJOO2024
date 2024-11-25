@@ -25,4 +25,7 @@
     <string name="view_all_medals">View All Medals</string>
     <string name="text_for_images">Images description</string>
     <string name="hello_blank_fragment">blank\n</string>
+    <string name="pro">PRO</string>
+    <string name="elite">ELITE</string>
+    <string name="ultimate_event">ULTIMATE EVENT</string>
 </resources>

@@ -5,7 +5,7 @@ import com.losPro.aplicaciondearranque.dominio.data.TicketPro
 import com.losPro.aplicaciondearranque.dominio.data.UltimateEvent
 
 object IntermediaryRepository {
-   private val intermediates = listOf( TicketPro(), Elite(), UltimateEvent() )
+    private val intermediates = listOf( TicketPro(), Elite(), UltimateEvent() )
 
    //Lambda
    val get: () -> List<Intermediary> = { intermediates }

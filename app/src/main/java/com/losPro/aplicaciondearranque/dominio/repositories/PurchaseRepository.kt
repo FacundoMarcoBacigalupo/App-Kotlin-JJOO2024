@@ -1,7 +1,6 @@
 package repositories
 import com.losPro.aplicaciondearranque.dominio.data.Purchase
 
-
 object PurchaseRepository {
    private val purchases = mutableListOf<Purchase>()
    private val occupiedSeats = mutableSetOf<String>()

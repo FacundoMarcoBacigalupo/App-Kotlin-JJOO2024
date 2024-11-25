@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.dominio.data.PurchaseAdapter
 import repositories.PurchaseRepository
 
-
 class PurchaseHistory : Fragment() {
 
    override fun onCreateView(
@@ -25,31 +24,16 @@ class PurchaseHistory : Fragment() {
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
-      val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewPurchasesHistory)
-      recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
-      recyclerViewEvents.adapter = PurchaseAdapter(PurchaseRepository.get())
-
-
       val callback = object : OnBackPressedCallback(true) {
          override fun handleOnBackPressed() {
             findNavController().navigate(R.id.fragment_home) // Back to fragment_home
          }
       }
       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+      val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewPurchasesHistory)
+      recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
+      recyclerViewEvents.adapter = PurchaseAdapter(PurchaseRepository.get())
+
    }
-
-
 }
-
-
-////Redirect to Purchase History
-//fun loadFragmentPurchaseHistory(view: View){
-//   setContentView(R.layout.fragment_purchase_history)
-//
-//   val callback = object : OnBackPressedCallback(true) {
-//      override fun handleOnBackPressed() {
-//         //Back to activity_main
-//         mainActivity()
-//      }
-//   }
-//}
