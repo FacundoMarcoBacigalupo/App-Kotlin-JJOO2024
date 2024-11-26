@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.losPro.aplicaciondearranque.MainActivity.CurrentUser.currentUser
 import com.losPro.aplicaciondearranque.dominio.data.PurchaseAdapter
 import repositories.PurchaseRepository
 
@@ -33,7 +34,10 @@ class PurchaseHistory : Fragment() {
 
       val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewPurchasesHistory)
       recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
-      recyclerViewEvents.adapter = PurchaseAdapter(PurchaseRepository.get())
+      recyclerViewEvents.adapter = currentUser?.let {
+         PurchaseRepository.getByUserId(
+              it.id)
+      }?.let { PurchaseAdapter(it) }
 
    }
 }

@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.losPro.aplicaciondearranque.MainActivity.CurrentUser.currentUser
 import com.losPro.aplicaciondearranque.dominio.data.Event
 import com.losPro.aplicaciondearranque.dominio.data.EventButtonsAdapter
 import com.losPro.aplicaciondearranque.dominio.data.Intermediary
@@ -85,9 +86,9 @@ class BuyTickets : Fragment() {
       val builder = AlertDialog.Builder(requireContext())
       val seat= PurchaseRepository.randomSeat()
       builder.setMessage("""
-      Ticket price: ${event.price}
-      Commission: ${intermediary.calculateCommission(event.price)}
-      Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary)}
+      Ticket price: ${event.price}$
+      Commission: ${intermediary.calculateCommission(event.price)}$
+      Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary)}$
       Event: ${event.sport.name}
       Date: ${event.date}
       Place: ${event.place}
@@ -98,10 +99,8 @@ class BuyTickets : Fragment() {
          .setPositiveButton("Confirm") { dialog, _ ->
 
            if (verifyPurchase(event, intermediary)){
-
               Toast.makeText(requireContext(), "Purchase confirmed for ${event.sport.name}", Toast.LENGTH_SHORT).show()
            }
-
             dialog.dismiss()
             onClose()
          }
@@ -153,25 +152,22 @@ class BuyTickets : Fragment() {
 
                                     kokú
        */
-      //if ((currentUser?.money)!! >= PurchaseService.calculateFinalPrice(event.price,intermediary)) {
-         if (true) {
+     if ((currentUser?.money)!! >= PurchaseService.calculateFinalPrice(event.price,intermediary)) {
 
-            //Create new Purchase
-         val seatChosen= chosenSeat
+             //Create new Purchase
+             val seatChosen = chosenSeat
 
-         val newPurchase = Purchase(
-            id = PurchaseRepository.newIdPurchase(),
-            userId = 1234,
-           // userId = currentUser!!.id,
-            eventId = event.id,
-            amount = PurchaseService.calculateFinalPrice(event.price,intermediary),
-            createdDate = LocalDateTime.now().toString(),
-            seat = seatChosen
-         )
-
-         PurchaseRepository.add(newPurchase)
-
+             val newPurchase = Purchase(
+                 id = PurchaseRepository.newIdPurchase(),
+                 userId = currentUser!!.id,
+                 eventId = event.id,
+                 amount = PurchaseService.calculateFinalPrice(event.price, intermediary),
+                 createdDate = LocalDateTime.now().toString(),
+                 seat = seatChosen
+             )
+             PurchaseRepository.add(newPurchase)
       }
+
       return true
 
    }

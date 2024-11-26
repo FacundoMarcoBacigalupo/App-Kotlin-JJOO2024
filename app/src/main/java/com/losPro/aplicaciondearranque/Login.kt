@@ -10,13 +10,35 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.losPro.aplicaciondearranque.dominio.data.User
 import repositories.UserRepository
 
 class Login : Fragment(){
-    private lateinit var currentUser: User
-    fun getCurrentUser(): User = currentUser
+    private val mainViewModel: MainActivity.MainViewModel by activityViewModels()
+
+    class SharedViewModel : ViewModel() {
+        private val _data = MutableLiveData<String>()
+        val data: LiveData<String> = _data
+
+        fun setData(newData: String) {
+            _data.value = newData
+        }
+    }
+
+   // class FragmentA : Fragment() {
+        // ...
+        private val viewModel: SharedViewModel by activityViewModels()
+
+        fun sendDataToFragmentB(data: String) {
+            viewModel.setData(data)
+        }
+        // ...
+   // }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,13 +58,11 @@ class Login : Fragment(){
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 
-        //requireView().findViewById<TextView>(R.id.text_error_credentials)
-
         val button2: Button = requireView().findViewById(R.id.button_start)
         button2.setOnClickListener {
             val logged = loginUser()
             if (logged) {
-
+                Toast.makeText(requireContext(), "Login successful ${MainActivity.CurrentUser.currentUser?.name}" , Toast.LENGTH_SHORT).show()
                 val data : String = "data"
                 val bundle = bundleOf("data" to data)
                 findNavController().navigate(R.id.action_fragment_login_to_fragment_home, bundle)
@@ -56,7 +76,7 @@ class Login : Fragment(){
 
         val user = UserRepository.login(nickName, password)
         if (user != null) {
-            this.currentUser = user
+            MainActivity.CurrentUser.currentUser = user
             return true
         } else {
            showErrorInLogIn()
@@ -66,8 +86,6 @@ class Login : Fragment(){
 
    private fun showErrorInLogIn() {
         Toast.makeText(requireContext(), "Error with the credentials", Toast.LENGTH_SHORT).show()
-        //val errorText: TextView = requireView().findViewById(R.id.text_error_credentials)
-       // errorText.text = getString(R.string.password_or_email_are_incorrect)
     }
 
     fun navigateToFragmentB(data: String) {

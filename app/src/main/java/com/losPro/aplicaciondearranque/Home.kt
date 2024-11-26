@@ -6,9 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
+import com.losPro.aplicaciondearranque.dominio.data.User
 
 class Home : Fragment() {
+
+
+   class SharedViewModel : ViewModel() {
+      private val _data = MutableLiveData<String>()
+      val data: LiveData<String> = _data
+
+      fun setData(newData: String) {
+         _data.value = newData
+      }
+   }
+   private val viewModel: SharedViewModel by activityViewModels()
+
 
    override fun onCreateView(
       inflater: LayoutInflater, container: ViewGroup?,
@@ -17,9 +34,13 @@ class Home : Fragment() {
       return inflater.inflate(R.layout.fragment_home, container, false)
    }
 
-
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
+
+      viewModel.data.observe(viewLifecycleOwner) { receivedData ->
+         // Usa receivedData aquí
+
+      }
 
       val buttonBuyTickets: Button = view.findViewById(R.id.button_buy_tickets)
       buttonBuyTickets.setOnClickListener {
