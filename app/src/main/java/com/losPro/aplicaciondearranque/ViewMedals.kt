@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.dominio.data.MedalsAdapter
 import repositories.MedalTableRepository
-import kotlin.text.get
 
 class ViewMedals : Fragment() {
 

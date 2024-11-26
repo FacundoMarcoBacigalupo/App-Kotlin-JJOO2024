@@ -88,10 +88,5 @@ class Login : Fragment(){
         Toast.makeText(requireContext(), "Error with the credentials", Toast.LENGTH_SHORT).show()
     }
 
-    fun navigateToFragmentB(data: String) {
-        val bundle = bundleOf("data" to data)
-
-    }
-
 }
 

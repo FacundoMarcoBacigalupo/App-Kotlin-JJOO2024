@@ -15,7 +15,6 @@ import com.losPro.aplicaciondearranque.dominio.data.User
 
 class Home : Fragment() {
 
-
    class SharedViewModel : ViewModel() {
       private val _data = MutableLiveData<String>()
       val data: LiveData<String> = _data

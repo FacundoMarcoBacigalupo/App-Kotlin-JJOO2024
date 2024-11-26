@@ -38,6 +38,5 @@ class PurchaseHistory : Fragment() {
          PurchaseRepository.getByUserId(
               it.id)
       }?.let { PurchaseAdapter(it) }
-
    }
 }
