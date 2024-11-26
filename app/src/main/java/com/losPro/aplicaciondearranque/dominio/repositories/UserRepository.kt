@@ -29,4 +29,14 @@ object UserRepository {
         }
     }
 
+    fun getUser(id : Long): User? {
+        users.forEach {
+            if(it.id == id){
+                return it
+            }
+
+        }
+        return null
+    }
+
 }

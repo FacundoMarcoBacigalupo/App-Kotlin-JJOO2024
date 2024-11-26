@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-    class MainViewModel : ViewModel() {
-    }
+    class MainViewModel : ViewModel()
+
 
     object CurrentUser {
         var currentUser : User? = null

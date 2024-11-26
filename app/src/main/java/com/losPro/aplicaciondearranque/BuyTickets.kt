@@ -18,10 +18,12 @@ import com.losPro.aplicaciondearranque.dominio.data.Event
 import com.losPro.aplicaciondearranque.dominio.data.EventButtonsAdapter
 import com.losPro.aplicaciondearranque.dominio.data.Intermediary
 import com.losPro.aplicaciondearranque.dominio.data.Purchase
+import com.losPro.aplicaciondearranque.dominio.data.User
+import com.losPro.aplicaciondearranque.dominio.repositories.IntermediaryRepository
+import com.losPro.aplicaciondearranque.dominio.repositories.PurchaseService
 import repositories.EventRepository
-import repositories.IntermediaryRepository
 import repositories.PurchaseRepository
-import repositories.PurchaseService
+import repositories.UserRepository
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import kotlin.math.round
@@ -112,6 +114,9 @@ class BuyTickets : Fragment() {
            if (verifyPurchase(event, intermediary)){
               Toast.makeText(requireContext(), "Purchase confirmed for ${event.sport.name}", Toast.LENGTH_SHORT).show()
            }
+             else
+               Toast.makeText(requireContext(), "ERROR: Insufficient funds for ${event.sport.name}", Toast.LENGTH_SHORT).show()
+
             dialog.dismiss()
             onClose()
          }
@@ -162,9 +167,14 @@ class BuyTickets : Fragment() {
 
                                     kokú
        */
-     if ((currentUser?.money)!! >= PurchaseService.calculateFinalPrice(event.price,intermediary)) {
 
+       var payable = false
+       val cashToPaid = PurchaseService.calculateFinalPrice(event.price,intermediary)
+     if ((currentUser?.money)!! >= cashToPaid) {
              //Create new Purchase
+
+         UserRepository.getUser(currentUser!!.id)?.money = UserRepository.getUser(currentUser!!.id)?.money?.minus(cashToPaid)!!
+
              val seatChosen = chosenSeat
          val currentDate = LocalDate.now().format(DateTimeFormatter.ISO_DATE)
              val newPurchase = Purchase(
@@ -176,18 +186,21 @@ class BuyTickets : Fragment() {
                  seat = seatChosen
              )
              PurchaseRepository.add(newPurchase)
+
+         payable = true
       }
-      return true
+      return payable
    }
 
    private fun showIntermediaryOptons(view: View) : View {
-       val callback = object : OnBackPressedCallback(true) {
+     /*  val callback = object : OnBackPressedCallback(true) {
            override fun handleOnBackPressed() {
                //Back to Home
                findNavController().navigate(R.id.fragment_buy_tickets)
            }
        }
        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    */
 
       val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
 

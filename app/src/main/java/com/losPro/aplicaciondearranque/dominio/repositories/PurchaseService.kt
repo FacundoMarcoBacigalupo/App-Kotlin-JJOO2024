@@ -1,4 +1,4 @@
-package repositories
+package com.losPro.aplicaciondearranque.dominio.repositories
 import com.losPro.aplicaciondearranque.dominio.data.Intermediary
 
 object PurchaseService {

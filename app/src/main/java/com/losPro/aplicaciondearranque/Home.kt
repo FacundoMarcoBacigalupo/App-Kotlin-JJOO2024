@@ -11,7 +11,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
-import com.losPro.aplicaciondearranque.dominio.data.User
 
 class Home : Fragment() {
 
@@ -19,12 +18,8 @@ class Home : Fragment() {
       private val _data = MutableLiveData<String>()
       val data: LiveData<String> = _data
 
-      fun setData(newData: String) {
-         _data.value = newData
-      }
    }
    private val viewModel: SharedViewModel by activityViewModels()
-
 
    override fun onCreateView(
       inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +31,7 @@ class Home : Fragment() {
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
-      viewModel.data.observe(viewLifecycleOwner) { receivedData ->
-         // Usa receivedData aquí
+      viewModel.data.observe(viewLifecycleOwner) {
 
       }
 
@@ -64,18 +58,3 @@ class Home : Fragment() {
 
    }
 }
-
-
-////Redirect to Home
-//private fun loadActivityMain2() {
-//   setContentView(R.layout.activity_home)
-//
-//   val buttonBuyTickets : Button = findViewById(R.id.button_buy_tickets)
-//   buttonBuyTickets.setOnClickListener{
-//      loadFragmentBuyTickets()
-//   }
-//
-//   val buttonExit : Button = findViewById(R.id.button_go_from_main2_to_main)
-//   buttonExit.setOnClickListener{mainActivity()}
-//
-//}
