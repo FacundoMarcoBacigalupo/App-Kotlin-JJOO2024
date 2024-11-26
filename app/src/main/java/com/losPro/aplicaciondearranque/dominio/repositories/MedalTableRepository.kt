@@ -82,7 +82,7 @@ object MedalTableRepository {
                 7L,
                 7.toString(),
                 "Francia",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931974%29.svg/1200px-Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931974%29.svg.png",
+                "https://es.wikipedia.org/wiki/Bandera_de_Francia#/media/Archivo:Flag_of_France.svg",
                 18,
                 15,
                 14
@@ -106,7 +106,7 @@ object MedalTableRepository {
                 9L,
                 9.toString(),
                 "Italia",
-                "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+                "https://es.wikipedia.org/wiki/Bandera_de_Italia#/media/Archivo:Flag_of_Italy.svg",
                 14,
                 12,
                 10

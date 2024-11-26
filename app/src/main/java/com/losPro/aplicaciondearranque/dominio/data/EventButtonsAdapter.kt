@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.losPro.aplicaciondearranque.R
 
 class EventButtonsAdapter(private val events : List<Event>,
@@ -24,7 +25,7 @@ class EventButtonsAdapter(private val events : List<Event>,
             val sport: TextView = eventView.findViewById(R.id.textViewSport)
             val buttonTest: Button = eventView.findViewById(R.id.buttonTest)
             val stars: TextView = eventView.findViewById(R.id.textViewStars)
-            val logo: ImageView = eventView.findViewById(R.id.imageViewLogo)
+           // val logo: ImageView = eventView.findViewById(R.id.imageViewLogo)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,9 +44,6 @@ class EventButtonsAdapter(private val events : List<Event>,
         holder.sport.text= event.sport.name
         holder.stars.text= event.sport.stars.toString()
 
-      //  holder.logo.image=event.sport.logo
-     // .load(event.sport.logo)
-      //.into(holder.logo)
 
       holder.buttonTest.setOnClickListener(){
           onButtonClick(event)

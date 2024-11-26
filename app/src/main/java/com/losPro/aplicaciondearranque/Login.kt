@@ -36,7 +36,7 @@ class Login : Fragment(){
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 
-        requireView().findViewById<TextView>(R.id.text_error_credentials)
+        //requireView().findViewById<TextView>(R.id.text_error_credentials)
 
         val button2: Button = requireView().findViewById(R.id.button_start)
         button2.setOnClickListener {
@@ -59,15 +59,15 @@ class Login : Fragment(){
             this.currentUser = user
             return true
         } else {
-            showErrorInLogIn()
+           showErrorInLogIn()
             return false
         }
     }
 
-    private fun showErrorInLogIn() {
+   private fun showErrorInLogIn() {
         Toast.makeText(requireContext(), "Error with the credentials", Toast.LENGTH_SHORT).show()
-        val errorText: TextView = requireView().findViewById(R.id.text_error_credentials)
-        errorText.text = getString(R.string.password_or_email_are_incorrect)
+        //val errorText: TextView = requireView().findViewById(R.id.text_error_credentials)
+       // errorText.text = getString(R.string.password_or_email_are_incorrect)
     }
 
     fun navigateToFragmentB(data: String) {
