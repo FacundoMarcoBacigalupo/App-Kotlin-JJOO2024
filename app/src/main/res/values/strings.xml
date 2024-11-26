@@ -21,7 +21,7 @@
     <string name="password_or_email_are_incorrect">Password or Email Incorrect</string>
     <string name="buy_tickets">Buy Tickets</string>
     <string name="out">Exit</string>
-    <string name="view_purchase_history">View Purchase History</string>
+    <string name="view_purchase_history">Purchase History</string>
     <string name="view_all_medals">View All Medals</string>
     <string name="text_for_images">Images description</string>
     <string name="hello_blank_fragment">blank\n</string>

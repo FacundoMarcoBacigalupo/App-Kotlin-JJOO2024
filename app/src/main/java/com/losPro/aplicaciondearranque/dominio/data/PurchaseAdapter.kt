@@ -26,12 +26,17 @@ class PurchaseAdapter(private val purchases :  List<Purchase>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val purchase = purchases[position]
-        holder.id.text = purchase.id.toString()
-        holder.userId.text = purchase.userId.toString()
-        holder.eventId.text = purchase.eventId.toString()
-        holder.amount.text = purchase.amount.toString()
-        holder.createdDate.text = purchase.createdDate
-        holder.seat.text = purchase.seat
+       /* holder.position.text = country.position
+        holder.goldMedals.text = "Golden medals: ${country.goldMedals}"
+        holder.silverMedals.text = "Silver medals: ${country.silverMedals}"
+        holder.bronzeMedals.text = "Bronze medals: ${country.bronzeMedals}"
+        holder.totalMedals.text = "Total medals: $totalMedals"*/
+        holder.id.text = "ID: ${purchase.id}"
+        holder.userId.text = "User ID: ${purchase.userId}"
+        holder.eventId.text = "Event: ${purchase.eventId}"
+        holder.amount.text = "Amount: $${purchase.amount}"
+        holder.createdDate.text = "Date: ${purchase.createdDate}"
+        holder.seat.text = "Seat: ${purchase.seat}"
     }
 
     override fun getItemCount(): Int = purchases.size

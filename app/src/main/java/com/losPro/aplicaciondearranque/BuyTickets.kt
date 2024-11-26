@@ -47,14 +47,12 @@ class BuyTickets : Fragment() {
       val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewEvents)
       recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
       val adapter = EventButtonsAdapter(EventRepository.getEvents()) { event: Event ->
-         // Obtén la vista inflada
+
          val intermediaryView = showIntermediaryOptons(view)
 
-         // Configura los botones en la vista inflada
          val buttonIntermediary1: Button = intermediaryView.findViewById(R.id.button_intermediary_pro)
          buttonIntermediary1.setOnClickListener {
             showConfirmPurchase(event, IntermediaryRepository.get()[0]) {
-               // Ocultar la vista inflada después de cerrar el diálogo
               val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
                 rootContainer.removeView(intermediaryView)
             }
@@ -82,20 +80,31 @@ class BuyTickets : Fragment() {
 
    private fun showConfirmPurchase(event: Event, intermediary: Intermediary, onClose: () -> Unit) {
       val builder = AlertDialog.Builder(requireContext())
-      builder.setMessage("Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary)}")
+      val seat= PurchaseRepository.randomSeat()
+      builder.setMessage("""
+      Ticket price: ${event.price}
+      Commission: ${intermediary.calculateCommission(event.price)}
+      Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary)}
+      Event: ${event.sport.name}
+      Date: ${event.date}
+      Place: ${event.place}
+      Hour: ${event.hour}
+      Seat: ${seat.toString()}
+      """.trimMargin())
          .setTitle("Do you want to confirm the purchase?")
          .setPositiveButton("Confirm") { dialog, _ ->
 
            if (verifyPurchase(event, intermediary)){
+
               Toast.makeText(requireContext(), "Purchase confirmed for ${event.sport.name}", Toast.LENGTH_SHORT).show()
            }
 
             dialog.dismiss()
-            onClose() // Ejecuta la acción adicional
+            onClose()
          }
          .setNegativeButton("Cancel") { dialog, _ ->
             dialog.dismiss()
-            onClose() // Ejecuta la acción adicional
+            onClose()
          }
 
       val dialog = builder.create()

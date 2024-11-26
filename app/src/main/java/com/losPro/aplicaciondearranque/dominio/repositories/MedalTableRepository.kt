@@ -82,7 +82,7 @@ object MedalTableRepository {
                 7L,
                 7.toString(),
                 "Francia",
-                "https://es.wikipedia.org/wiki/Bandera_de_Francia#/media/Archivo:Flag_of_France.svg",
+                "https://static.vecteezy.com/system/resources/previews/002/417/841/non_2x/illustration-of-the-france-flag-free-vector.jpg",
                 18,
                 15,
                 14
@@ -106,7 +106,7 @@ object MedalTableRepository {
                 9L,
                 9.toString(),
                 "Italia",
-                "https://es.wikipedia.org/wiki/Bandera_de_Italia#/media/Archivo:Flag_of_Italy.svg",
+                "https://static.vecteezy.com/system/resources/previews/003/077/224/non_2x/italian-flag-of-italy-vector.jpg",
                 14,
                 12,
                 10
