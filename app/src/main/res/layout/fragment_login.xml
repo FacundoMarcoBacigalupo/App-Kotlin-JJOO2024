@@ -88,6 +88,7 @@
                 tools:visibility="visible" />
 
             <EditText
+                android:textColor="@color/white"
                 android:id="@+id/editTextTextEmailAddress"
                 android:layout_width="280dp"
                 android:layout_height="48dp"

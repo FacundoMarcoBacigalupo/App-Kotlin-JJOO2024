@@ -17,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.dominio.data.Event
 import com.losPro.aplicaciondearranque.dominio.data.EventButtonsAdapter
 import com.losPro.aplicaciondearranque.dominio.data.Intermediary
+import com.losPro.aplicaciondearranque.dominio.data.Purchase
 import repositories.EventRepository
 import repositories.IntermediaryRepository
+import repositories.PurchaseRepository
 import repositories.PurchaseService
 
 class BuyTickets : Fragment() {
@@ -51,16 +53,16 @@ class BuyTickets : Fragment() {
          // Configura los botones en la vista inflada
          val buttonIntermediary1: Button = intermediaryView.findViewById(R.id.button_intermediary_pro)
          buttonIntermediary1.setOnClickListener {
-            showExampleDialog(event, "Pro Event") {
+            showConfirmPurchase(event, IntermediaryRepository.get()[0]) {
                // Ocultar la vista inflada después de cerrar el diálogo
-               val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
-               rootContainer.removeView(intermediaryView)
+              val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
+                rootContainer.removeView(intermediaryView)
             }
          }
 
          val buttonIntermediary2: Button = intermediaryView.findViewById(R.id.button_intermediary_elite)
          buttonIntermediary2.setOnClickListener {
-            showExampleDialog(event, "Elite Event") {
+            showConfirmPurchase(event, IntermediaryRepository.get()[1]) {
                val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
                rootContainer.removeView(intermediaryView)
             }
@@ -68,7 +70,7 @@ class BuyTickets : Fragment() {
 
          val buttonIntermediary3: Button = intermediaryView.findViewById(R.id.button_intermediary_ultimate_event)
          buttonIntermediary3.setOnClickListener {
-            showExampleDialog(event, "Ultimate Event") {
+            showConfirmPurchase(event, IntermediaryRepository.get()[2]) {
                val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
                rootContainer.removeView(intermediaryView)
             }
@@ -78,12 +80,16 @@ class BuyTickets : Fragment() {
       recyclerViewEvents.adapter = adapter
    }
 
-   private fun showExampleDialog(event: Event, intermediary: String, onClose: () -> Unit) {
+   private fun showConfirmPurchase(event: Event, intermediary: Intermediary, onClose: () -> Unit) {
       val builder = AlertDialog.Builder(requireContext())
-      builder.setMessage("Final price: ${event.price}")
+      builder.setMessage("Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary)}")
          .setTitle("Do you want to confirm the purchase?")
          .setPositiveButton("Confirm") { dialog, _ ->
-            Toast.makeText(requireContext(), "Purchase confirmed for ${event.sport.name}", Toast.LENGTH_SHORT).show()
+
+           if (verifyPurchase(event, intermediary)){
+              Toast.makeText(requireContext(), "Purchase confirmed for ${event.sport.name}", Toast.LENGTH_SHORT).show()
+           }
+
             dialog.dismiss()
             onClose() // Ejecuta la acción adicional
          }
@@ -96,6 +102,23 @@ class BuyTickets : Fragment() {
       dialog.show()
    }
 
+   private fun verifyPurchase(event: Event, intermediary: Intermediary): Boolean {
+
+      //  if ((currentUser?.money)!! >= finalPrice) {
+      //    //Create new Purchase
+      //  val newPurchase = Purchase(
+      //    id = PurchaseRepository.newIdPurchase(),
+      //    userId = currentUser!!.id,
+      //    eventId = eventChooseForName.id,
+      //    amount = finalPrice,
+      //    createdDate = currentDate,
+      //    seat = seat
+      //  )
+
+      //  PurchaseRepository.add(purchase)
+
+      return true
+   }
 
    private fun showIntermediaryOptons(view: View) : View {
       val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
@@ -111,41 +134,5 @@ class BuyTickets : Fragment() {
 
       // Devuelve la vista inflada
       return newView
-   }
-
-   private fun intermediaryPro(
-      view: View,
-      event: Event ) {
-
-      //choose one intermediary in the recycler view
-      var intermediary: Intermediary
-      val buttonIntermediary1: Button = view.findViewById(R.id.button_intermediary_pro)
-      buttonIntermediary1.setOnClickListener() {
-
-         intermediary = IntermediaryRepository.get()[0]
-
-         var price =  PurchaseService.calculateFinalPrice(event.price,intermediary)
-
-
-       //     intermediary.calculateCommission(event.price)
-        // val comision = intermediary.calculateCommission(event.price)
-        //price += event.price.plus(comision)
-
-        // Toast.makeText(requireContext(), "COSTO :  $price", Toast.LENGTH_SHORT).show()
-
-         val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_confirm_purchase)
-         // Infla una nueva vista
-         val newView = layoutInflater.inflate(R.layout.confirm_purchase_layout , rootContainer, false)
-         // Configura o interactúa con la vista inflada si es necesario
-         val buttonIntermediaryPro = newView.findViewById<TextView>(R.id.button_confirm_purchase)
-         buttonIntermediaryPro.setOnClickListener(){
-
-
-            findNavController().navigate(R.id.fragment_home)
-
-         }
-
-         rootContainer.addView(newView)
-      }
    }
 }
