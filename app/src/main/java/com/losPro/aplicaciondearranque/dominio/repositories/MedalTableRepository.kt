@@ -9,7 +9,7 @@ object MedalTableRepository {
             Country(
                 1L,
                      1.toString(),
-                "Estados Unidos",
+                "United States",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png",
                 35,
                 30,
@@ -45,7 +45,7 @@ object MedalTableRepository {
             Country(
                 4L,
                 4.toString(),
-                "Alemania",
+                "Germany",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/640px-Flag_of_Germany.svg.png",
                 24,
                 20,
@@ -57,7 +57,7 @@ object MedalTableRepository {
             Country(
                 5L,
                 5.toString(),
-                "Japón",
+                "Japan",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png",
                 22,
                 18,
@@ -69,7 +69,7 @@ object MedalTableRepository {
             Country(
                 6L,
                 6.toString(),
-                "Reino Unido",
+                "United Kingdom",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png",
                 20,
                 17,
@@ -81,7 +81,7 @@ object MedalTableRepository {
             Country(
                 7L,
                 7.toString(),
-                "Francia",
+                "France",
                 "https://static.vecteezy.com/system/resources/previews/002/417/841/non_2x/illustration-of-the-france-flag-free-vector.jpg",
                 18,
                 15,
@@ -105,7 +105,7 @@ object MedalTableRepository {
             Country(
                 9L,
                 9.toString(),
-                "Italia",
+                "Italy",
                 "https://static.vecteezy.com/system/resources/previews/003/077/224/non_2x/italian-flag-of-italy-vector.jpg",
                 14,
                 12,
@@ -117,7 +117,7 @@ object MedalTableRepository {
             Country(
                 10L,
                 10.toString(),
-                "Canadá",
+                "Canada",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/800px-Flag_of_Canada_%28Pantone%29.svg.png",
                 12,
                 10,

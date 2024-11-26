@@ -2,7 +2,8 @@ package repositories
 import com.losPro.aplicaciondearranque.dominio.data.Event
 
 
-object EventRepository {
+object
+EventRepository {
    private val events = mutableListOf<Event>()
 
    init {

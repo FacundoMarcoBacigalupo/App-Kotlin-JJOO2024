@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.losPro.aplicaciondearranque.R
+import repositories.EventRepository
 
 class PurchaseAdapter(private val purchases :  List<Purchase>) :
     RecyclerView.Adapter<PurchaseAdapter.ViewHolder>(){
@@ -26,14 +27,16 @@ class PurchaseAdapter(private val purchases :  List<Purchase>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val purchase = purchases[position]
-       /* holder.position.text = country.position
-        holder.goldMedals.text = "Golden medals: ${country.goldMedals}"
-        holder.silverMedals.text = "Silver medals: ${country.silverMedals}"
-        holder.bronzeMedals.text = "Bronze medals: ${country.bronzeMedals}"
-        holder.totalMedals.text = "Total medals: $totalMedals"*/
+        val eventName = EventRepository.getById(purchase.eventId)
+
+        /* holder.position.text = country.position
+         holder.goldMedals.text = "Golden medals: ${country.goldMedals}"
+         holder.silverMedals.text = "Silver medals: ${country.silverMedals}"
+         holder.bronzeMedals.text = "Bronze medals: ${country.bronzeMedals}"
+         holder.totalMedals.text = "Total medals: $totalMedals"*/
         holder.id.text = "ID: ${purchase.id}"
-        holder.userId.text = "User ID: ${purchase.userId}"
-        holder.eventId.text = "Event: ${purchase.eventId}"
+       // holder.userId.text = "User ID: ${purchase.userId.}"
+        holder.eventId.text = "Event: ${eventName?.sport?.name}"
         holder.amount.text = "Amount: $${purchase.amount}"
         holder.createdDate.text = "Date: ${purchase.createdDate}"
         holder.seat.text = "Seat: ${purchase.seat}"

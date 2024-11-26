@@ -43,22 +43,22 @@
                     android:id="@+id/textViewSport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="1dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/archivo_thin"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textViewDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="1dp"
                     android:textColor="@color/white" />
 
                 <TextView
