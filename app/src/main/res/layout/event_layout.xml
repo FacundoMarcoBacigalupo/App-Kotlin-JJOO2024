@@ -13,6 +13,12 @@
         tools:layout_editor_absoluteY="135dp">
 
         <TextView
+            android:id="@+id/textViewSport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
             android:id="@+id/textViewDate"
             android:layout_width="188dp"
             android:layout_height="30dp" />
@@ -35,11 +41,6 @@
             android:layout_height="58dp"
             android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textViewSport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/textViewId"
