@@ -18,7 +18,6 @@ import com.losPro.aplicaciondearranque.dominio.data.Event
 import com.losPro.aplicaciondearranque.dominio.data.EventButtonsAdapter
 import com.losPro.aplicaciondearranque.dominio.data.Intermediary
 import com.losPro.aplicaciondearranque.dominio.data.Purchase
-import com.losPro.aplicaciondearranque.dominio.data.User
 import com.losPro.aplicaciondearranque.dominio.repositories.IntermediaryRepository
 import com.losPro.aplicaciondearranque.dominio.repositories.PurchaseService
 import repositories.EventRepository
@@ -100,7 +99,7 @@ class BuyTickets : Fragment() {
       val builder = AlertDialog.Builder(requireContext())
       builder.setMessage("""
       Ticket price: ${event.price}$
-      Commission: ${intermediary.calculateCommission(event.price).round(2)}$
+      Commission: $intermediary, ${intermediary.calculateCommission(event.price).round(2)}$
       Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary).round(2)}$
       Event: ${event.sport.name}
       Date: ${event.date}
