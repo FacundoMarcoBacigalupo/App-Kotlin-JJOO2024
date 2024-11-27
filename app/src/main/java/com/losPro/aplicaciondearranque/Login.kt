@@ -10,34 +10,12 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
-import com.losPro.aplicaciondearranque.dominio.data.User
 import repositories.UserRepository
 
 class Login : Fragment(){
-    private val mainViewModel: MainActivity.MainViewModel by activityViewModels()
 
-    class SharedViewModel : ViewModel() {
-        private val _data = MutableLiveData<String>()
-        val data: LiveData<String> = _data
-
-        fun setData(newData: String) {
-            _data.value = newData
-        }
-    }
-
-   // class FragmentA : Fragment() {
-        // ...
-        private val viewModel: SharedViewModel by activityViewModels()
-
-        fun sendDataToFragmentB(data: String) {
-            viewModel.setData(data)
-        }
-        // ...
+    // ...
    // }
 
     override fun onCreateView(
@@ -63,7 +41,7 @@ class Login : Fragment(){
             val logged = loginUser()
             if (logged) {
                 Toast.makeText(requireContext(), "Login successful ${MainActivity.CurrentUser.currentUser?.name}" , Toast.LENGTH_SHORT).show()
-                val data : String = "data"
+                val data = "data"
                 val bundle = bundleOf("data" to data)
                 findNavController().navigate(R.id.action_fragment_login_to_fragment_home, bundle)
             }
