@@ -57,6 +57,7 @@ class BuyTickets : Fragment() {
         recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
         val adapter = EventButtonsAdapter(EventRepository.getEvents()) { event: Event ->
 
+
             val intermediaryView = showIntermediaryOptions(view)
 
             val buttonIntermediary1: Button =
@@ -97,15 +98,16 @@ class BuyTickets : Fragment() {
 
    private fun showConfirmPurchase(event: Event, intermediary: Intermediary, onClose: () -> Unit) {
       val builder = AlertDialog.Builder(requireContext())
-      builder.setMessage("""
-      Ticket price: ${event.price}$
-      Commission: $intermediary, ${intermediary.calculateCommission(event.price).round(2)}$
-      Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary).round(2)}$
-      Event: ${event.sport.name}
-      Date: ${event.date}
-      Place: ${event.place}
-      Hour: ${event.hour}
-      Seat: $chosenSeat
+      builder.setMessage(
+          """
+   Ticket price: ${event.price}$
+   Commission: $intermediary, ${intermediary.calculateCommission(event.price).round(2)}$
+   Final price: ${PurchaseService.calculateFinalPrice(event.price,intermediary).round(2)}$
+   Event: ${event.sport.name}
+   Date: ${event.date}
+   Place: ${event.place}
+   Hour: ${event.hour}
+   Seat: $chosenSeat
       """.trimMargin())
          .setTitle("Do you want to confirm the purchase?")
          .setPositiveButton("Confirm") { dialog, _ ->

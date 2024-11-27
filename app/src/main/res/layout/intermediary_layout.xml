@@ -54,19 +54,20 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="188dp"
-        android:layout_height="49dp"
+        android:layout_width="292dp"
+        android:layout_height="51dp"
         android:fontFamily="sans-serif-thin"
         android:lineSpacingExtra="8sp"
         android:text="@string/select_an_option"
         android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:typeface="normal"
         app:layout_constraintBottom_toTopOf="@+id/button_intermediary_pro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.613"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintVertical_bias="0.561" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
