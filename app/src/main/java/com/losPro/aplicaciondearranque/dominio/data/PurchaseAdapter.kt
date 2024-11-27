@@ -13,11 +13,13 @@ class PurchaseAdapter(private val purchases :  List<Purchase>) :
 
     class ViewHolder(purchaseView: View) : RecyclerView.ViewHolder(purchaseView){
         val id: TextView = purchaseView.findViewById(R.id.textViewId)
-        val userId: TextView = purchaseView.findViewById(R.id.textViewUserId)
         val eventId: TextView = purchaseView.findViewById(R.id.textViewEventId)
         val amount: TextView = purchaseView.findViewById(R.id.textViewAmount)
         val createdDate: TextView = purchaseView.findViewById(R.id.textViewCreatedDate)
         val seat: TextView = purchaseView.findViewById(R.id.textViewSeat)
+        var eventDate: TextView = purchaseView.findViewById(R.id.textViewEventDate)
+        var eventHour: TextView = purchaseView.findViewById(R.id.textViewEventHour)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,17 +31,13 @@ class PurchaseAdapter(private val purchases :  List<Purchase>) :
         val purchase = purchases[position]
         val eventName = EventRepository.getById(purchase.eventId)
 
-        /* holder.position.text = country.position
-         holder.goldMedals.text = "Golden medals: ${country.goldMedals}"
-         holder.silverMedals.text = "Silver medals: ${country.silverMedals}"
-         holder.bronzeMedals.text = "Bronze medals: ${country.bronzeMedals}"
-         holder.totalMedals.text = "Total medals: $totalMedals"*/
         holder.id.text = "ID: ${purchase.id}"
-       // holder.userId.text = "User ID: ${purchase.userId.}"
         holder.eventId.text = "Event: ${eventName?.sport?.name}"
         holder.amount.text = "Amount: $${purchase.amount}"
-        holder.createdDate.text = "Date: ${purchase.createdDate}"
+        holder.createdDate.text = "Purchase Date: ${purchase.createdDate}"
         holder.seat.text = "Seat: ${purchase.seat}"
+        holder.eventDate.text = "Event Date: ${eventName?.date}"
+        holder.eventHour.text = "Event Hour: ${eventName?.hour}"
     }
 
     override fun getItemCount(): Int = purchases.size

@@ -15,9 +15,6 @@ import repositories.UserRepository
 
 class Login : Fragment(){
 
-    // ...
-   // }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

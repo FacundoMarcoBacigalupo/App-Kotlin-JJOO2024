@@ -47,16 +47,16 @@ class BuyTickets : Fragment() {
       }
       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 
-      //choose one event in the recycler view
        buyTickets(view)
 
    }
 
     private fun buyTickets(view: View) {
+
+        //choose one event in the recycler view
         val recyclerViewEvents = view.findViewById<RecyclerView>(R.id.recyclerViewEvents)
         recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
         val adapter = EventButtonsAdapter(EventRepository.getEvents()) { event: Event ->
-
 
             val intermediaryView = showIntermediaryOptions(view)
 
@@ -123,7 +123,7 @@ class BuyTickets : Fragment() {
          }
          .setNegativeButton("Cancel") { dialog, _ ->
             dialog.dismiss()
-            //onClose()
+
          }
 
       val dialog = builder.create()

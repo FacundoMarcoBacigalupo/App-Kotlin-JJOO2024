@@ -32,7 +32,6 @@ class Home : Fragment() {
       super.onViewCreated(view, savedInstanceState)
 
       viewModel.data.observe(viewLifecycleOwner) {
-
       }
 
       val buttonBuyTickets: Button = view.findViewById(R.id.button_buy_tickets)
