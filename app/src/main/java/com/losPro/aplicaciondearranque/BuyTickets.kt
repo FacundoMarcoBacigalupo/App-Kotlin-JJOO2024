@@ -57,7 +57,7 @@ class BuyTickets : Fragment() {
         recyclerViewEvents.layoutManager = LinearLayoutManager(requireContext())
         val adapter = EventButtonsAdapter(EventRepository.getEvents()) { event: Event ->
 
-            val intermediaryView = showIntermediaryOptons(view)
+            val intermediaryView = showIntermediaryOptions(view)
 
             val buttonIntermediary1: Button =
                 intermediaryView.findViewById(R.id.button_intermediary_pro)
@@ -153,27 +153,14 @@ class BuyTickets : Fragment() {
       return payable
    }
 
-   private fun showIntermediaryOptons(view: View) : View {
-     /*  val callback = object : OnBackPressedCallback(true) {
-           override fun handleOnBackPressed() {
-               //Back to Home
-               findNavController().navigate(R.id.fragment_buy_tickets)
-           }
-       }
-       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-    */
+   private fun showIntermediaryOptions(view: View) : View {
 
       val rootContainer = view.findViewById<FrameLayout>(R.id.fragment_show_intermediarys)
 
-      // Infla una nueva vista
       val newView = layoutInflater.inflate(R.layout.intermediary_layout, rootContainer, false)
 
-     // val buttonIntermediaryPro = newView.findViewById<TextView>(R.id.button_intermediary_pro)
-
-      // Agrega la vista al contenedor
       rootContainer.addView(newView)
 
-      // Devuelve la vista inflada
       return newView
    }
 
